@@ -13,3 +13,52 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+let results = []
+let dates = []
+const ref = getCookie('results')
+const ref2 = getCookie('dates')
+if(ref != '') results = JSON.parse(ref)
+if(ref2 != '') dates = JSON.parse(ref)
+document.cookie = "results=" + JSON.stringify(items)
+document.cookie = "dates=" + JSON.stringify(items)
+
+const date = new Date();
+
+function getCookie(cookieName) {
+
+    var name = cookieName + '='
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';')
+
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1)
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length)
+        }
+    }
+
+    return ''
+}
+
+function history(result, length) {
+
+    d = date.getDate()
+    item = result + "/" + length
+
+    if(results.length >= 5) {
+        results.shift()
+        results.push(item)
+        dates.shift()
+        dates.push(d)
+    } else {
+        items.push(item)
+        dates.push(d)
+    }
+    document.cookie = "results=" + JSON.stringify(results)  + ";path=/"
+    document.cookie = "dates=" + JSON.stringify(dates)  + ";path=/"
+
+}

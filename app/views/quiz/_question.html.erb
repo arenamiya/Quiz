@@ -6,12 +6,12 @@
     <fieldset>
     <% q['answers'].values.each do |answer| %>
         <% if answer %>
-            <input class="form-check-input" type="radio" name="answer-<%= z %>" id="answer-<%= i %>">
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="question_<%= q['id'] %>" id="answer_<%= @alphabet[i] %>" value="answer_<%= @alphabet[i] %>">
+            <label class="form-check-label">
                 <%= answer %>
             </label><br>
-            <% i += 1 %>
         <% end %>
+        <% i += 1 %>
     <% end %>
     </fieldset>
 
