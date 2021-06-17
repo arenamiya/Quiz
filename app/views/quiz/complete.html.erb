@@ -1,10 +1,16 @@
-<body onload="history(<%= session[:score].to_s %>,<%= session[:length].to_s %>)">
-<div class="container-sm justify-content-center flex-column d-flex align-items-center">
 
-<h2>You answered <%= session[:score] %> / <%= session[:length] %> questions correctly</h2>
+<div class="container-sm justify-content-center flex-column d-flex align-items-center">
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" 
+onload="quizHistory(<%= session[:score] %>,<%= session[:length] %>)">
+<h2>
+You answered <%= session[:score] %> / <%= session[:length] %> questions correctly
+</h2>
+
+<div id="quiz-history">
+<h3>History</h3>
+</div>
 
 <a href="/">
-<input type="button" onClick="window.location.href=/" class="btn btn-primary mb-3" value="Reload">
+<input type="button" class="btn btn-primary mb-3" value="Reload">
 </a>
 </div>
-</body>

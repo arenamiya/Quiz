@@ -19,11 +19,9 @@ let dates = []
 const ref = getCookie('results')
 const ref2 = getCookie('dates')
 if(ref != '') results = JSON.parse(ref)
-if(ref2 != '') dates = JSON.parse(ref)
+if(ref2 != '') dates = JSON.parse(ref2)
 document.cookie = "results=" + JSON.stringify(results)
 document.cookie = "dates=" + JSON.stringify(dates)
-
-const date = new Date();
 
 function getCookie(cookieName) {
 
@@ -44,21 +42,28 @@ function getCookie(cookieName) {
     return ''
 }
 
-function history(result, length) {
+function quizHistory(score, length) {
 
-    d = date.getDate()
-    item = result + "/" + length
+    let d = new Date(Date.now())
+    let date = d.toLocaleDateString()
+    let time = d.getHours()
+    let result = score + "/" + length
+    date = time + ":00, " + date
 
     if(results.length >= 5) {
         results.shift()
-        results.push(item)
+        results.push(result)
         dates.shift()
-        dates.push(d)
+        dates.push(date)
     } else {
-        items.push(item)
-        dates.push(d)
+        results.push(result)
+        dates.push(date)
     }
     document.cookie = "results=" + JSON.stringify(results)  + ";path=/"
     document.cookie = "dates=" + JSON.stringify(dates)  + ";path=/"
-
+    
+    for(var i = 0; i < results.length; i++) {
+        document.getElementById("quiz-history").innerHTML += i+1 + ". At " + dates[i]
+        document.getElementById("quiz-history").innerHTML += ", you answered " + results[i] + " questions correctly<br>"
+    }
 }
