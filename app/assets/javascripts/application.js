@@ -20,8 +20,8 @@ const ref = getCookie('results')
 const ref2 = getCookie('dates')
 if(ref != '') results = JSON.parse(ref)
 if(ref2 != '') dates = JSON.parse(ref)
-document.cookie = "results=" + JSON.stringify(items)
-document.cookie = "dates=" + JSON.stringify(items)
+document.cookie = "results=" + JSON.stringify(results)
+document.cookie = "dates=" + JSON.stringify(dates)
 
 const date = new Date();
 
