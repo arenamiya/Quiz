@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+s3728738 Aren Balgos
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+apiKey = 5roGPhokrqk9TSIs7hWm2N8cDaMsGC9pizmMhSPs
+Heroku Deployment URL = https://radiant-retreat-76721.herokuapp.com
+Last Deployment Log =
