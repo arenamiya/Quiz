@@ -1,9 +1,13 @@
 
 <div class="container-sm justify-content-center flex-column d-flex align-items-center">
+
 <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" 
-onload="quizHistory(<%= session[:score] %>,<%= session[:length] %>)">
+onload="quizHistory()">
+
 <h2>
-You answered <%= session[:score] %> / <%= session[:length] %> questions correctly
+You answered 
+<span id="quiz-score"><%= session[:score] %></span> / 
+<span id="quiz-length"><%= session[:length] %></span> questions correctly
 </h2>
 
 <div id="quiz-history">

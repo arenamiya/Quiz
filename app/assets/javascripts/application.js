@@ -42,23 +42,22 @@ function getCookie(cookieName) {
     return ''
 }
 
-function quizHistory(score, length) {
+function quizHistory() {
 
     let d = new Date(Date.now())
-    let date = d.toLocaleDateString()
-    let time = d.getHours()
-    let result = score + "/" + length
-    date = time + ":00, " + date
+    let result = document.getElementById("quiz-score").innerHTML + "/" + document.getElementById("quiz-length").innerHTML
+    let date = d.toLocaleTimeString() + ", " + d.toLocaleDateString()
 
     if(results.length >= 5) {
         results.shift()
-        results.push(result)
         dates.shift()
+        results.push(result)
         dates.push(date)
     } else {
         results.push(result)
         dates.push(date)
     }
+
     document.cookie = "results=" + JSON.stringify(results)  + ";path=/"
     document.cookie = "dates=" + JSON.stringify(dates)  + ";path=/"
     
