@@ -1,0 +1,18 @@
+<div>
+
+    <h3><%= q['question'] %></h3>
+
+    <% i = 0 %>
+    <fieldset>
+    <% q['answers'].values.each do |answer| %>
+        <% if answer %>
+            <input class="form-check-input" type="radio" name="question_<%= q['id'] %>" id="answer_<%= @alphabet[i] %>" value="answer_<%= @alphabet[i] %>" required>
+            <label class="form-check-label">
+                <%= answer %>
+            </label><br>
+        <% end %>
+        <% i += 1 %>
+    <% end %>
+    </fieldset>
+
+</div>
