@@ -8,6 +8,14 @@ class QuizController < ApplicationController
         session[:length] = @length
     end
 
+    def quiz
+        @length = 4
+        @alphabet = ("a".."z").to_a
+        questions = JSON.parse(File.read('quiz.json'))
+        @questions = questions.sample(@length)
+        session[:length] = @length
+    end
+
     def submit
         score = 0
         questions = JSON.parse(File.read('quiz.json'))
