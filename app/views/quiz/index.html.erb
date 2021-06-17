@@ -1,1 +1,5 @@
-Yup. Hi! This is some quiz content. Yup.
+<% @questions.each do |q| %>
+
+    <%= render 'question', q: q %><br>
+
+<% end %>
