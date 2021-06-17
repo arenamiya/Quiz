@@ -1,5 +1,12 @@
-<% @questions.each do |q| %>
+<div class="container-sm justify-content-center flex-column align-self-center">
 
-    <%= render 'question', q: q %><br>
-
+<%= form_with do |form| %>
+    <% z = 0 %>
+    <% @questions.each do |q| %>
+        <%= render 'question', q: q, z: z %><br>
+        <% z += 1 %>
+    <% end %>
+    <button type="submit" class="btn btn-primary mb-3">Submit Quiz</button>
 <% end %>
+
+</div>
